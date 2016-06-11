@@ -7,7 +7,7 @@ application created using the [OpenCV](http://opencv.org) computer vision librar
 
 # Images
 ## The robot
-![The robot]( "The robot")
+![The robot]( https://github.com/FrancescoForcher/GestureControlledRobot/blob/master/Arduino Robot.png "The robot")
 
 ## The circuit
-![The circuit]( "The circuit")
+![The circuit](https://github.com/FrancescoForcher/GestureControlledRobot/blob/master/CIRCUITO3.jpg "The circuit")
