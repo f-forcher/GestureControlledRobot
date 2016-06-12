@@ -3,7 +3,7 @@
 
 My high school ("Liceo Scientifico") project for the final exams, made in June 2013. An [Arduino](https://www.arduino.cc) robot 
 controlled remotely (through Bluetooth) by the movements of the hands, recognized from an Android 
-application created using the [OpenCV](http://opencv.org) computer vision library. It uses a Machine Learning technique calle Support Vector Machine, modified from face recognition to recognize a closed hand and his position in the camera field of view, and the coordinates are mapped to robot commands (ie when the hand is in the upper zone means move forward).
+application created using the [OpenCV](http://opencv.org) computer vision library. It uses a Machine Learning technique called Support Vector Machine, modified from face recognition to recognize a closed hand and his position in the camera field of view, and the coordinates are mapped to robot commands (ie when the hand is in the upper zone means move forward).
 The robot however has proximity sensors and obstacle-avoiding capabilities: if the current command would make it collide, it turns around.
 
 The other app instead controls all aspects of the robot, like the lights or the cooling.
