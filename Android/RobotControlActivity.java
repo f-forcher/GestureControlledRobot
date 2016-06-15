@@ -68,7 +68,7 @@ public class RobotControlActivity extends Activity implements CvCameraViewListen
     private Point nuovoPuntoMirror2;
     private Point puntoMedio;
     
-    //Array contenente 2 valori da 0 a 255, il primo Ë per il motore destro e il secondo per il sinistro
+    //Array contenente 2 valori da 0 a 255, il primo √® per il motore destro e il secondo per il sinistro
     private int[] velMotori = new int[2];
     private double yc=0;
     private double xc=0;
@@ -230,7 +230,7 @@ public class RobotControlActivity extends Activity implements CvCameraViewListen
         //Disegna la zona morta
         Core.circle(mRgba, new Point(width/2,height/2), (int)(height/(float)6), COLORE_BIANCO,2);
         
-        //Ignora i dati se ci sono pi˘ faccie o nessuna, prima c'era un ciclo for
+        //Ignora i dati se ci sono pi√π faccie o nessuna, prima c'era un ciclo for
 		if (facesArray.length==1) {
 				//Modificato per fare simmetria speculare TODO:FINIRE AMARINO!
 				
@@ -241,17 +241,17 @@ public class RobotControlActivity extends Activity implements CvCameraViewListen
 				puntoMedio = new Point((nuovoPuntoMirror1.x+nuovoPuntoMirror2.x)/2,(nuovoPuntoMirror1.y+nuovoPuntoMirror2.y)/2);
 				//puntoMedio;
 				/*
-				 * v1=yc+xc =====> Velocit‡ motore SINISTRO!
-				 * v2=yc-xc =====> Velocit‡ motore DESTRO!
+				 * v1=yc+xc =====> Velocit√† motore SINISTRO!
+				 * v2=yc-xc =====> Velocit√† motore DESTRO!
 				 * Sistema di riferimento centrale (origine=centro tablet e asse y verso l'alto):
 				 * yc=-(y-height/2) e xc=(x-width/2)
-				 * Normalizzati (e poi arrontondati) con yn=(yc/height)*255 e xn=(xc/width)*255 cosicchË xn e yn variano da 0 a 255
-				 * (per es yc/height Ë la percentuale dell'asse y raggiunta, dato che height Ë l'altezza massima)
+				 * Normalizzati (e poi arrontondati) con yn=(yc/height)*255 e xn=(xc/width)*255 cosicch√® xn e yn variano da 0 a 255
+				 * (per es yc/height √® la percentuale dell'asse y raggiunta, dato che height √® l'altezza massima)
 				 */
 				xc=(puntoMedio.x-width/2);
 				yc=0-(puntoMedio.y-height/2);
 				
-				//Disegna il rettangolo della mano con le diagonali. Il centro Ë il pundo che d‡ i dati;
+				//Disegna il rettangolo della mano con le diagonali. Il centro √® il pundo che d√† i dati;
 				Core.rectangle(mRgba, nuovoPuntoMirror1, nuovoPuntoMirror2, FACE_RECT_COLOR, 3);
 				Core.line(mRgba, nuovoPuntoMirror1, nuovoPuntoMirror2, FACE_RECT_COLOR, 3);
 				Core.line(mRgba, new Point(nuovoPuntoMirror1.x,nuovoPuntoMirror2.y), new Point(nuovoPuntoMirror2.x,nuovoPuntoMirror1.y), FACE_RECT_COLOR, 3);
@@ -265,11 +265,11 @@ public class RobotControlActivity extends Activity implements CvCameraViewListen
 					Amarino.sendDataToArduino(this, BT_ADDRESS, 'm', velMotori);
 				}
 				else {
-					//100 perchË si arriva a 100 e poi si aggiunge 180, sennÚ il robot non si muove
+					//100 perch√® si arriva a 100 e poi si aggiunge 180, senn√≤ il robot non si muove
 					yn=(int)Math.round((yc/height)*127);
 					xn=(int)Math.round((xc/width)*127);
 
-					//Se sarebbe positivo si aggiunge 154, se negativo si sottrae
+					//Se √® positivo si aggiunge 154, se negativo si sottrae
 					velMotori[0]=restringi((yn+xn)+(int)(Math.signum(yn+xn)*180),-255,255);
 					velMotori[1]=restringi((yn-xn)+(int)(Math.signum(yn-xn)*180),-255,255);
 
